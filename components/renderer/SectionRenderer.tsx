@@ -14,7 +14,7 @@ export default function SectionRenderer({ section, pageSlug }: SectionRendererPr
   const [formData, setFormData] = useState<Record<string, any>>({});
   const safeSlug = String(pageSlug);
   const controller = (controllers as Record<string, any>)[safeSlug] || {};
-
+  console.log(controller);
   // --- Handlers ---
   const onInputChange = (paramKey: string, value: any, methodsConfig: any) => {
     const updatedData = { ...formData, [paramKey]: value };
@@ -31,7 +31,9 @@ export default function SectionRenderer({ section, pageSlug }: SectionRendererPr
   const onBtnClick = (paramKey: string, eventCode: string, methodsConfig: any) => {
     if (methodsConfig?.onClick) {
       const method = methodsConfig.onClick;
+      console.log(method);
       if (controller[method.methodName]) {
+        console.log("calling controller method.")
         controller[method.methodName]({
           paramKey,
           eventCode, 

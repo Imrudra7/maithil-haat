@@ -1,6 +1,6 @@
 // @/lib/controllers/index.ts
 import { loginController } from './loginController';
-//import { registerController } from './registerController';
+import { registerController } from './registerController';
 
 export interface BaseController {
   executeChange?: (params: any) => void;
@@ -10,5 +10,5 @@ export interface BaseController {
 
 export const controllers: Record<string, BaseController> = {
   'login': loginController,
- // 'register': registerController,
+  'register': registerController,
 };
